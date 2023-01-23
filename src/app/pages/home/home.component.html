@@ -1,3 +1,12 @@
 <div>
-  <app-search-bar></app-search-bar>
+  <div class="flex justify-center">
+    <app-search-bar></app-search-bar>
+  </div>
+  <ng-container *ngIf="showResults$ | async as shows">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
+      <ng-container *ngFor="let show of shows">
+        <app-show-item [show]="show"></app-show-item>
+      </ng-container>
+    </div>
+  </ng-container>
 </div>

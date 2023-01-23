@@ -6,6 +6,7 @@ import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
 const routes: Routes = [
   { path: '', component: HomeComponent },
   { path: 'show/:show-id', component: ShowDetailComponent },
+  { path: '**', redirectTo: '/' },
 ];
 
 @NgModule({
