@@ -1,0 +1,16 @@
+<div class="flex justify-center">
+  <div class="block p-6 rounded-lg shadow-lg bg-white" [routerLink]="['/show', show?.id]" [state]="{ show: show }">
+    <h5>{{ show?.name }}</h5>
+    <ng-container *ngIf="show?.image; else imgSkeleton">
+      <img class="rounded-md w-48 h-64" [src]="show?.image?.medium" [alt]="show?.name + '-image'" />
+    </ng-container>
+    <div>
+      <i class="fa-solid fa-heart text-red-500"></i>
+      {{ show?.rating?.average ? show?.rating?.average : 'No score' }}
+    </div>
+  </div>
+</div>
+
+<ng-template #imgSkeleton>
+  <div class="w-48 bg-gray-300 h-64 rounded-md"></div>
+</ng-template>
