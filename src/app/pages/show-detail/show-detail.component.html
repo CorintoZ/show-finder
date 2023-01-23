@@ -1,4 +1,31 @@
 <div class="flex flex-wrap flex-col p-4">
-  <a class="" [routerLink]="['/']">Search another show</a>
-  <div>Hello</div>
+  <a class="font-medium text-lg" [routerLink]="['/']"><i class="fa-solid fa-arrow-left"> Back</i></a>
+  <div class="mt-6">
+    <div class="flex gap-6">
+      <img [src]="show?.image?.medium" alt="" />
+      <div class="flex flex-col gap-y-4">
+        <h6 class="font-medium text-2xl">{{ show?.name }}</h6>
+        <h5 class="font-medium text-xl">Summary</h5>
+        <div [innerHTML]="show?.summary"></div>
+        <div>
+          <h5 class="font-medium text-xl">Genres</h5>
+          <ng-container *ngFor="let genre of show?.genres">
+            {{ genre }}
+          </ng-container>
+        </div>
+        <ng-container *ngIf="show?.rating?.average">
+          <div class="flex gap-x-2">
+            <ngb-rating [starTemplate]="decimalStar" [rate]="show!.rating!.average" [readonly]="true"></ngb-rating>
+            <p class="text-lg font-bold">{{ show!.rating!.average }}</p>
+          </div>
+        </ng-container>
+      </div>
+    </div>
+  </div>
 </div>
+
+<ng-template #decimalStar let-fill="fill">
+  <i class="fa-regular fa-star">
+    <i *ngIf="fill > 0" class="fa-solid fa-star filled" [style.width.%]="fill"></i>
+  </i>
+</ng-template>

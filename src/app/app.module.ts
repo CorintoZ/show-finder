@@ -7,13 +7,13 @@ import { HomeComponent } from './pages/home/home.component';
 import { ShowDetailComponent } from './pages/show-detail/show-detail.component';
 import { SearchBarComponent } from './components/search-bar/search-bar.component';
 import { ReactiveFormsModule } from '@angular/forms';
-import { TvmazeApiService } from './services/tvmaze-api.service';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowItemComponent } from './components/show-item/show-item.component';
+import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
 
 @NgModule({
   declarations: [AppComponent, HomeComponent, ShowDetailComponent, SearchBarComponent, ShowItemComponent],
-  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule],
+  imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule, NgbRatingModule],
   providers: [],
   bootstrap: [AppComponent],
 })
