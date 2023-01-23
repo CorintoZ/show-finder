@@ -1,20 +1,35 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
+import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs';
+import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
 
 @Component({
   selector: 'app-search-bar',
   templateUrl: './search-bar.component.html',
   styleUrls: ['./search-bar.component.scss'],
 })
-export class SearchBarComponent implements OnInit {
+export class SearchBarComponent implements OnInit, OnDestroy {
   public searchForm: FormGroup = new FormGroup({});
-  constructor(private fb: FormBuilder) {}
+  constructor(private tvMazeService: TvmazeApiService, private fb: FormBuilder) {}
 
   ngOnInit(): void {
     this.initForm();
+    this.searchForm
+      .get('query')
+      ?.valueChanges.pipe(
+        tap(v => console.log('formValue', v)),
+        debounceTime(1000),
+        distinctUntilChanged(),
+        map(q => this.tvMazeService.query$.next(q))
+      )
+      .subscribe();
+  }
+
+  ngOnDestroy(): void {
+    this.tvMazeService.query$.next('');
   }
 
   public initForm() {
-    th;
+    this.searchForm.addControl('query', this.fb.control(''));
   }
 }
