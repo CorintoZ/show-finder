@@ -1,6 +1,6 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { map, Observable, tap } from 'rxjs';
-import { Show, ShowClass } from 'src/app/models/show';
+import { Component, OnInit } from '@angular/core';
+import { map, Observable } from 'rxjs';
+import { ShowClass } from 'src/app/models/show';
 import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
 
 @Component({

@@ -1,9 +1,8 @@
-import { ComponentFixture, fakeAsync, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { HttpClientTestingModule } from '@angular/common/http/testing';
 import { of } from 'rxjs';
 
 import { HomeComponent } from './home.component';
-import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
 
 describe('HomeComponent', () => {
   let component: HomeComponent;

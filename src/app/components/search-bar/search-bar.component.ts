@@ -1,6 +1,6 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { debounceTime, distinctUntilChanged, map, switchMap, tap } from 'rxjs';
+import { debounceTime, distinctUntilChanged, map } from 'rxjs';
 import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
 
 @Component({

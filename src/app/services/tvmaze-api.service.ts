@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { BehaviorSubject, filter, Observable, switchMap, tap } from 'rxjs';
+import { HttpClient } from '@angular/common/http';
+import { BehaviorSubject, Observable, switchMap } from 'rxjs';
 import { Show, ShowClass } from '../models/show';
 
 @Injectable({

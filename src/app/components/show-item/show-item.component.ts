@@ -1,5 +1,5 @@
-import { Component, Input, OnInit } from '@angular/core';
-import { Show, ShowClass } from 'src/app/models/show';
+import { Component, Input } from '@angular/core';
+import { ShowClass } from 'src/app/models/show';
 
 @Component({
   selector: 'app-show-item',

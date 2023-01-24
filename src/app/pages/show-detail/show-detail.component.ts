@@ -1,9 +1,9 @@
 import { Component, OnDestroy, OnInit } from '@angular/core';
-import { ActivatedRoute, Router, RouterState } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Location } from '@angular/common';
 import { ShowClass } from 'src/app/models/show';
 import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
-import { BehaviorSubject, concatMap, map, Observable, of, Subject, takeUntil, tap } from 'rxjs';
+import { concatMap, of, Subject, takeUntil } from 'rxjs';
 
 interface LocationState {
   navigationId: number;
