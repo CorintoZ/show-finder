@@ -1,0 +1,18 @@
+<div class="flex justify-center">
+  <form>
+    <app-search-bar (query)="handleQuery($event)"></app-search-bar>
+  </form>
+</div>
+<ng-container *ngIf="showResults$ | async as shows">
+  <ng-container *ngIf="shows.length > 0; else noResults">
+    <div class="grid grid-cols-1 gap-2 md:grid-cols-3 md:gap-4">
+      <ng-container *ngFor="let show of shows">
+        <app-show-item [show]="show"></app-show-item>
+      </ng-container>
+    </div>
+  </ng-container>
+</ng-container>
+
+<ng-template #noResults>
+  <div id="noResults" class="p-4 border border-solid text-gray-500">No shows found</div>
+</ng-template>

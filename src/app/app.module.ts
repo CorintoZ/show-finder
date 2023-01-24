@@ -10,9 +10,10 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { HttpClientModule } from '@angular/common/http';
 import { ShowItemComponent } from './components/show-item/show-item.component';
 import { NgbModule, NgbRatingModule } from '@ng-bootstrap/ng-bootstrap';
+import { SearchWrapperComponent } from './components/search-wrapper/search-wrapper.component';
 
 @NgModule({
-  declarations: [AppComponent, HomeComponent, ShowDetailComponent, SearchBarComponent, ShowItemComponent],
+  declarations: [AppComponent, HomeComponent, ShowDetailComponent, SearchBarComponent, ShowItemComponent, SearchWrapperComponent],
   imports: [BrowserModule, AppRoutingModule, ReactiveFormsModule, HttpClientModule, NgbRatingModule],
   providers: [],
   bootstrap: [AppComponent],

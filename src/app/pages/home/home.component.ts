@@ -1,23 +1,10 @@
-import { Component, OnInit } from '@angular/core';
-import { map, Observable } from 'rxjs';
-import { ShowClass } from 'src/app/models/show';
-import { TvmazeApiService } from 'src/app/services/tvmaze-api.service';
+import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-home',
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.scss'],
 })
-export class HomeComponent implements OnInit {
-  public showResults$: Observable<ShowClass[]> = new Observable();
-  constructor(private tvMazeService: TvmazeApiService) {}
-
-  ngOnInit(): void {
-    this.showResults$ = this.tvMazeService.searchResults().pipe(
-      map(shows => {
-        const showsSlice = shows.slice(0, 6);
-        return showsSlice.map(show => show.show);
-      })
-    );
-  }
+export class HomeComponent {
+  constructor() {}
 }
