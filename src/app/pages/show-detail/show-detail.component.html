@@ -7,12 +7,10 @@
         <h6 class="font-medium text-2xl">{{ show?.name }}</h6>
         <h5 class="font-medium text-xl">Summary</h5>
         <div [innerHTML]="show?.summary"></div>
-        <div>
-          <h5 class="font-medium text-xl">Genres</h5>
-          <ng-container *ngFor="let genre of show?.genres">
-            {{ genre }}
-          </ng-container>
-        </div>
+        <h5 class="font-medium text-xl">Genres</h5>
+        <ng-container *ngFor="let genre of show?.genres">
+          {{ genre }}
+        </ng-container>
         <ng-container *ngIf="show?.rating?.average">
           <div class="flex gap-x-2">
             <ngb-rating [starTemplate]="decimalStar" [rate]="show!.rating!.average" [readonly]="true"></ngb-rating>
