@@ -17,7 +17,6 @@ export class SearchBarComponent implements OnInit, OnDestroy {
     this.searchForm
       .get('query')
       ?.valueChanges.pipe(
-        tap(v => console.log('formValue', v)),
         debounceTime(1000),
         distinctUntilChanged(),
         map(q => this.tvMazeService.query$.next(q))
